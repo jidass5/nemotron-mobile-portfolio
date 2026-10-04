@@ -1,0 +1,2 @@
+# Opcional: lista separada por vírgulas. Ausente = CORS aberto para demo.
+ALLOWED_ORIGINS=https://seu-dominio.example

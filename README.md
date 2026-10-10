@@ -136,6 +136,23 @@ O framework foi executado localmente contra fontes públicas reais do GitHub, Cl
 
 Resultado observado em 10/10/2026: **11 cenários executados**, fontes públicas retornando upstream HTTP 200 e cinco entradas perigosas/inválidas rejeitadas com HTTP 400. O tempo local observado ficou entre aproximadamente **93 ms e 1.318 ms** por requisição; isso é uma medição daquela execução, não uma garantia de produção.
 
+### Camada analítica com dados reais
+
+Para aproximar o projeto de vagas de dados/IA, foi adicionada uma coleta reproduzível de metadados públicos de **12 repositórios de IA** pela API REST do GitHub, sempre passando pelo próprio Fetch Proxy. O snapshot registrou **12/12 respostas bem-sucedidas**, **0 falhas**, latência observada de **31,0 ms a 460,7 ms** e mediana observada de **169,55 ms** nesta execução local. Uma entrada foi explicitamente canonicalizada pela API: `NVIDIA/NeMo` retornou `NVIDIA-NeMo/Speech`; isso permanece registrado como redirecionamento, não é tratado como se fosse o mesmo repositório.
+
+O dataset versionado está em [`data/ai_repositories_snapshot.csv`](data/ai_repositories_snapshot.csv) e [`data/ai_repositories_snapshot.json`](data/ai_repositories_snapshot.json). O relatório com método e limitações está em [`docs/AI_REPOSITORIES_SNAPSHOT.md`](docs/AI_REPOSITORIES_SNAPSHOT.md), e o gráfico mostra somente stars observadas — não um ranking de qualidade:
+
+![Stars observadas em repositórios públicos de IA](docs/ai-repositories-stars.svg)
+
+Para reproduzir a coleta e a visualização, com o Worker local rodando:
+
+```bash
+python3 scripts/collect_ai_repositories.py
+python3 scripts/plot_ai_repositories.py
+```
+
+Os números são snapshots públicos e mutáveis. Eles não representam qualidade, popularidade futura, performance de modelo ou probabilidade de contratação. Não há deployment público do Worker nesta entrega; a execução demonstrada é local e essa limitação permanece explícita.
+
 ## Como avaliar o cliente
 
 O APK de referência está em [`recovered-app/NemotronMobile.apk`](recovered-app/NemotronMobile.apk). Para uma avaliação completa, o repositório deve incluir o projeto-fonte Android/WebView e um provedor compatível com OpenAI configurado localmente pelo avaliador.

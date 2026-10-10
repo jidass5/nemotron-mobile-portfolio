@@ -9,7 +9,7 @@
 
 A validação demonstrou que o framework não depende somente de mocks. Ele buscou conteúdo real pela rede, preservou status e URL final, aplicou limite de caracteres, aceitou HTML, texto puro e JSON, e recusou alvos perigosos antes de abrir a conexão.
 
-Foram executados **10 cenários**. Os cinco cenários de dados públicos retornaram HTTP 200 do proxy e status 200 do upstream. Os cinco cenários de segurança/validação foram rejeitados com HTTP 400, sem chamada ao upstream. O tempo observado variou de **~93 ms a ~1.318 ms** por requisição no ambiente local, dependendo da fonte pública e da resposta de rede. Esses tempos são uma fotografia desta execução, não uma promessa de latência de produção.
+Foram executados **11 cenários**: health check e cinco fontes de dados públicos retornaram HTTP 200 do proxy e status 200 do upstream; cinco cenários de segurança/validação foram rejeitados com HTTP 400, sem chamada ao upstream. O tempo observado variou de **~93 ms a ~1.318 ms** por requisição no ambiente local, dependendo da fonte pública e da resposta de rede. Esses tempos são uma fotografia desta execução, não uma promessa de latência de produção.
 
 | Caso | Fonte ou entrada | Resultado | Evidência observada |
 | --- | --- | --- | --- |

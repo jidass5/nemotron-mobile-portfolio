@@ -130,6 +130,12 @@ Após o deploy, configure a URL do Worker na constante `FETCH_PROXY` do cliente 
 
 Para uma avaliação rápida, siga o [quickstart para recrutadores](docs/QUICKSTART_RECRUITER.md). As decisões de tools, contexto lazy e revisão de diff estão no [contrato de tools](docs/TOOL_CONTRACT.md). O [benchmark de projetos alinhados](docs/BENCHMARK.md) explica por que o repositório prioriza um fluxo vertical pequeno em vez de copiar plataformas maiores.
 
+### Validação com dados públicos reais
+
+O framework foi executado localmente contra fontes públicas reais do GitHub, Cloudflare Developers e Example Domain, sem tokens. A rodada validou HTTP 200, parsing de texto/JSON, limite de saída e marcadores semânticos; também bloqueou loopback, IP privado, credenciais na URL, porta não permitida e formato inválido. O relatório reproduzível está em [docs/REAL_DATA_VALIDATION.md](docs/REAL_DATA_VALIDATION.md), com dados brutos em [`REAL_DATA_VALIDATION.json`](docs/REAL_DATA_VALIDATION.json) e o script em [`scripts/real_data_validation.py`](scripts/real_data_validation.py).
+
+Resultado observado em 10/10/2026: **11 cenários executados**, fontes públicas retornando upstream HTTP 200 e cinco entradas perigosas/inválidas rejeitadas com HTTP 400. O tempo local observado ficou entre aproximadamente **93 ms e 1.318 ms** por requisição; isso é uma medição daquela execução, não uma garantia de produção.
+
 ## Como avaliar o cliente
 
 O APK de referência está em [`recovered-app/NemotronMobile.apk`](recovered-app/NemotronMobile.apk). Para uma avaliação completa, o repositório deve incluir o projeto-fonte Android/WebView e um provedor compatível com OpenAI configurado localmente pelo avaliador.

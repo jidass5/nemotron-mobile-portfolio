@@ -1,0 +1,167 @@
+{
+  "generated_at": "2026-10-10",
+  "method": "Local Wrangler Worker; public unauthenticated GET requests; maxChars per case; no secrets",
+  "semantic_cases": [
+    {
+      "target": "https://raw.githubusercontent.com/Aider-AI/aider/main/README.md",
+      "proxy_status": 200,
+      "upstream_status": 200,
+      "final_url": "https://raw.githubusercontent.com/Aider-AI/aider/main/README.md",
+      "content_type": "text/plain; charset=utf-8",
+      "elapsed_ms": 189.0,
+      "chars": 4996,
+      "expected_markers": [
+        "aider",
+        "Installation",
+        "Git"
+      ],
+      "markers_found": {
+        "aider": true,
+        "Installation": true,
+        "Git": true
+      },
+      "all_markers_found": true,
+      "sample": "<p align=\"center\">     <a href=\"https://aider.chat/\"><img src=\"https://aider.chat/assets/logo.svg\" alt=\"Aider Logo\" width=\"300\"></a> </p>  <h1 align=\"center\"> AI Pair Programming in Your Terminal </h1>   <p align=\"center\"> Aider lets you pair program with LLMs to start a new project or build on your"
+    },
+    {
+      "target": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/fixtures/vitest-plugin-examples/README.md",
+      "proxy_status": 200,
+      "upstream_status": 200,
+      "final_url": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/fixtures/vitest-plugin-examples/README.md",
+      "content_type": "text/plain; charset=utf-8",
+      "elapsed_ms": 119.3,
+      "chars": 4071,
+      "expected_markers": [
+        "Vitest",
+        "Workers",
+        "test"
+      ],
+      "markers_found": {
+        "Vitest": true,
+        "Workers": true,
+        "test": true
+      },
+      "all_markers_found": true,
+      "sample": "# `@cloudflare/vitest-plugin` Examples  This directory contains example projects tested with `@cloudflare/vitest-plugin`. It aims to provide the building blocks for you to write tests for your own Workers.  | Directory                                                                         | Overvie"
+    },
+    {
+      "target": "https://raw.githubusercontent.com/OpenHands/OpenHands/main/README.md",
+      "proxy_status": 200,
+      "upstream_status": 200,
+      "final_url": "https://raw.githubusercontent.com/OpenHands/OpenHands/main/README.md",
+      "content_type": "text/plain; charset=utf-8",
+      "elapsed_ms": 93.7,
+      "chars": 5000,
+      "expected_markers": [
+        "OpenHands",
+        "agent"
+      ],
+      "markers_found": {
+        "OpenHands": true,
+        "agent": true
+      },
+      "all_markers_found": true,
+      "sample": "<a name=\"readme-top\"></a>  <div align=\"center\">   <img src=\"https://assets.openhands.dev/logo-whitebackground.png\" alt=\"OpenHands logo\" width=\"340\">   <h1 align=\"center\" style=\"border-bottom: none\">Agent Canvas</h1>   <p align=\"center\">     <strong>The self-hosted developer control center for coding"
+    },
+    {
+      "target": "https://api.github.com/repos/cloudflare/workers-sdk",
+      "proxy_status": 200,
+      "upstream_status": 200,
+      "final_url": "https://api.github.com/repos/cloudflare/workers-sdk",
+      "content_type": "application/json; charset=utf-8",
+      "elapsed_ms": 245.7,
+      "chars": 5000,
+      "expected_markers": [
+        "full_name",
+        "stargazers_count",
+        "license"
+      ],
+      "markers_found": {
+        "full_name": true,
+        "stargazers_count": true,
+        "license": false
+      },
+      "all_markers_found": false,
+      "sample": "{\"id\":426659329,\"node_id\":\"R_kgDOGW5OAQ\",\"name\":\"workers-sdk\",\"full_name\":\"cloudflare/workers-sdk\",\"private\":false,\"owner\":{\"login\":\"cloudflare\",\"id\":314135,\"node_id\":\"MDEyOk9yZ2FuaXphdGlvbjMxNDEzNQ==\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/314135?v=4\",\"gravatar_id\":\"\",\"url\":\"https://"
+    },
+    {
+      "target": "https://example.com/",
+      "proxy_status": 200,
+      "upstream_status": 200,
+      "final_url": "https://example.com/",
+      "content_type": "text/html; charset=utf-8",
+      "elapsed_ms": 1069.9,
+      "chars": 340,
+      "expected_markers": [
+        "Example Domain"
+      ],
+      "markers_found": {
+        "Example Domain": true
+      },
+      "all_markers_found": true,
+      "sample": "Example Domain html{color-scheme:light dark;background:light-dark(#eee,#222)}body{font:16px/1.6 system-ui,sans-serif;max-width:26em;margin:auto;padding:25vh 2em 2em;text-align:center} This domain is for use in documentation examples without needing permission. This is not a service; avoid relying on"
+    }
+  ],
+  "raw": [
+    {
+      "target": "https://raw.githubusercontent.com/Aider-AI/aider/main/README.md",
+      "proxy_status": 200,
+      "elapsed_ms": 189.0,
+      "data": {
+        "url": "https://raw.githubusercontent.com/Aider-AI/aider/main/README.md",
+        "finalUrl": "https://raw.githubusercontent.com/Aider-AI/aider/main/README.md",
+        "status": 200,
+        "contentType": "text/plain; charset=utf-8",
+        "text": "<p align=\"center\">\n    <a href=\"https://aider.chat/\"><img src=\"https://aider.chat/assets/logo.svg\" alt=\"Aider Logo\" width=\"300\"></a>\n</p>\n\n<h1 align=\"center\">\nAI Pair Programming in Your Terminal\n</h1>\n\n\n<p align=\"center\">\nAider lets you pair program with LLMs to start a new project or build on your existing codebase. \n</p>\n\n<p align=\"center\">\n  <img\n    src=\"https://aider.chat/assets/screencast.svg\"\n    alt=\"aider screencast\"\n  >\n</p>\n\n<p align=\"center\">\n<!--[[[cog\nfrom scripts.homepage import get_badges_md\ntext = get_badges_md()\ncog.out(text)\n]]]-->\n  <a href=\"https://github.com/Aider-AI/aider/stargazers\"><img alt=\"GitHub Stars\" title=\"Total number of GitHub stars the Aider project has received\"\nsrc=\"https://img.shields.io/github/stars/Aider-AI/aider?style=flat-square&logo=github&color=f1c40f&labelColor=555555\"/></a>\n  <a href=\"https://pypi.org/project/aider-chat/\"><img alt=\"PyPI Downloads\" title=\"Total number of installations via pip from PyPI\"\nsrc=\"https://img.shields.io/badge/📦%20Installs-6.8M-2ecc71?style=flat-square&labelColor=555555\"/></a>\n  <img alt=\"Tokens per week\" title=\"Number of tokens processed weekly by Aider users\"\nsrc=\"https://img.shields.io/badge/📈%20Tokens%2Fweek-15B-3498db?style=flat-square&labelColor=555555\"/>\n  <a href=\"https://openrouter.ai/#options-menu\"><img alt=\"OpenRouter Ranking\" title=\"Aider's ranking among applications on the OpenRouter platform\"\nsrc=\"https://img.shields.io/badge/🏆%20OpenRouter-Top%2020-9b59b6?style=flat-square&labelColor=555555\"/></a>\n  <a href=\"https://aider.chat/HISTORY.html\"><img alt=\"Singularity\" title=\"Percentage of the new code in Aider's last release written by Aider itself\"\nsrc=\"https://img.shields.io/badge/🔄%20Singularity-88%25-e74c3c?style=flat-square&labelColor=555555\"/></a>\n<!--[[[end]]]-->  \n</p>\n\n## Features\n\n### [Cloud and local LLMs](https://aider.chat/docs/llms.html)\n\n<a href=\"https://aider.chat/docs/llms.html\"><img src=\"https://aider.chat/assets/icons/brain.svg\" width=\"32\" height=\"32\" align=\"left\" valign=\"middle\" style=\"margin-right:10px\"></a>\nAider works best with Claude 3.7 Sonnet, DeepSeek R1 & Chat V3, OpenAI o1, o3-mini & GPT-4o, but can connect to almost any LLM, including local models.\n\n<br>\n\n### [Maps your codebase](https://aider.chat/docs/repomap.html)\n\n<a href=\"https://aider.chat/docs/repomap.html\"><img src=\"https://aider.chat/assets/icons/map-outline.svg\" width=\"32\" height=\"32\" align=\"left\" valign=\"middle\" style=\"margin-right:10px\"></a>\nAider makes a map of your entire codebase, which helps it work well in larger projects.\n\n<br>\n\n### [100+ code languages](https://aider.chat/docs/languages.html)\n\n<a href=\"https://aider.chat/docs/languages.html\"><img src=\"https://aider.chat/assets/icons/code-tags.svg\" width=\"32\" height=\"32\" align=\"left\" valign=\"middle\" style=\"margin-right:10px\"></a>\nAider works with most popular programming languages: python, javascript, rust, ruby, go, cpp, php, html, css, and dozens more.\n\n<br>\n\n### [Git integration](https://aider.chat/docs/git.html)\n\n<a href=\"https://aider.chat/docs/git.html\"><img src=\"https://aider.chat/assets/icons/source-branch.svg\" width=\"32\" height=\"32\" align=\"left\" valign=\"middle\" style=\"margin-right:10px\"></a>\nAider automatically commits changes with sensible commit messages. Use familiar git tools to easily diff, manage and undo AI changes.\n\n<br>\n\n### [Use in your IDE](https://aider.chat/docs/usage/watch.html)\n\n<a href=\"https://aider.chat/docs/usage/watch.html\"><img src=\"https://aider.chat/assets/icons/monitor.svg\" width=\"32\" height=\"32\" align=\"left\" valign=\"middle\" style=\"margin-right:10px\"></a>\nUse aider from within your favorite IDE or editor. Ask for changes by adding comments to your code and aider will get to work.\n\n<br>\n\n### [Images & web pages](https://aider.chat/docs/usage/images-urls.html)\n\n<a href=\"https://aider.chat/docs/usage/images-urls.html\"><img src=\"https://aider.chat/assets/icons/image-multiple.svg\" width=\"32\" height=\"32\" align=\"left\" valign=\"middle\" style=\"margin-right:10px\"></a>\nAdd images and web pages to the chat to provide visual context, screenshots, reference docs, etc.\n\n<br>\n\n### [Voice-to-code](https://aider.chat/docs/usage/voice.html)\n\n<a href=\"https://aider.chat/docs/usage/voice.html\"><img src=\"https://aider.chat/assets/icons/microphone.svg\" width=\"32\" height=\"32\" align=\"left\" valign=\"middle\" style=\"margin-right:10px\"></a>\nSpeak with aider about your code! Request new features, test cases or bug fixes using your voice and let aider implement the changes.\n\n<br>\n\n### [Linting & testing](https://aider.chat/docs/usage/lint-test.html)\n\n<a href=\"https://aider.chat/docs/usage/lint-test.html\"><img src=\"https://aider.chat/assets/icons/check-all.svg\" width=\"32\" height=\"32\" align=\"left\" valign=\"middle\" style=\"margin-right:10px\"></a>\nAutomatically lint and test your code every time aider makes changes. Aider can fix problems detected by your linters and test suites.\n\n<br>\n\n### [Copy/paste to web chat](https://aider.chat/docs/usage/copypaste.html)\n\n<a href=\"https://aid"
+      }
+    },
+    {
+      "target": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/fixtures/vitest-plugin-examples/README.md",
+      "proxy_status": 200,
+      "elapsed_ms": 119.3,
+      "data": {
+        "url": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/fixtures/vitest-plugin-examples/README.md",
+        "finalUrl": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/fixtures/vitest-plugin-examples/README.md",
+        "status": 200,
+        "contentType": "text/plain; charset=utf-8",
+        "text": "# `@cloudflare/vitest-plugin` Examples\n\nThis directory contains example projects tested with `@cloudflare/vitest-plugin`. It aims to provide the building blocks for you to write tests for your own Workers.\n\n| Directory                                                                         | Overview                                                            |\n| --------------------------------------------------------------------------------- | ------------------------------------------------------------------- |\n| [✅ basics-unit-integration-self](basics-unit-integration-self)                   | Basic unit tests and integration tests using `exports.default`      |\n| [⚠️ basics-integration-auxiliary](basics-integration-auxiliary)                   | Basic integration tests using an auxiliary worker[^1]               |\n| [⚡️ pages-functions-unit-integration-self](pages-functions-unit-integration-self) | Functions unit tests and integration tests using `exports.default`  |\n| [📦 kv-r2-caches](kv-r2-caches)                                                   | Tests using KV, R2 and the Cache API                                |\n| [📚 d1](d1)                                                                       | Tests using D1 with migrations                                      |\n| [📌 durable-objects](durable-objects)                                             | Tests using Durable Objects with direct access, alarms and eviction |\n| [🔁 workflows](workflows)                                                         | Tests using Workflows                                               |\n| [🚥 queues](queues)                                                               | Tests using Queue producers and consumers                           |\n| [🚰 pipelines](pipelines)                                                         | Tests using Pipelines                                               |\n| [🚀 hyperdrive](hyperdrive)                                                       | Tests using Hyperdrive with a Vitest managed TCP server             |\n| [🤹 request-mocking](request-mocking)                                             | Tests using declarative (MSW) / imperative outbound request mocks   |\n| [🔌 multiple-workers](multiple-workers)                                           | Tests using multiple auxiliary workers and request mocks            |\n| [⚙️ web-assembly](web-assembly)                                                   | Tests importing WebAssembly modules                                 |\n| [🤯 rpc](rpc)                                                                     | Tests using named entrypoints, Durable Objects and RPC              |\n| [🧠 ai-vectorize](ai-vectorize)                                                   | Tests using Workers AI and Vectorize                                |\n| [🔄 context-exports](context-exports)                                             | Tests using context exports                                         |\n| [📥 dynamic-import](dynamic-import)                                               | Tests using dynamic imports                                         |\n| [🖼️ images](images)                                                               | Tests using the Images binding                                      |\n\n[^1]: When using `exports.default` for integration tests, your worker code runs in the same context as the test runner. This means you can use global mocks to control your worker, but also means your worker uses the same subtly different module resolution behaviour provided by Vite. Usually this isn't a problem, but if you'd like to run your worker in a fresh environment that's as close to production as possible, using an auxiliary worker may be a good idea. Note this prevents global mocks from controlling your worker, and requires you to build your worker ahead-of-time. This means your tests won't re-run automatically if you change your worker's source code, but could be useful if you have a complicated build process (e.g. full-stack framework).\n"
+      }
+    },
+    {
+      "target": "https://raw.githubusercontent.com/OpenHands/OpenHands/main/README.md",
+      "proxy_status": 200,
+      "elapsed_ms": 93.7,
+      "data": {
+        "url": "https://raw.githubusercontent.com/OpenHands/OpenHands/main/README.md",
+        "finalUrl": "https://raw.githubusercontent.com/OpenHands/OpenHands/main/README.md",
+        "status": 200,
+        "contentType": "text/plain; charset=utf-8",
+        "text": "<a name=\"readme-top\"></a>\n\n<div align=\"center\">\n  <img src=\"https://assets.openhands.dev/logo-whitebackground.png\" alt=\"OpenHands logo\" width=\"340\">\n  <h1 align=\"center\" style=\"border-bottom: none\">Agent Canvas</h1>\n  <p align=\"center\">\n    <strong>The self-hosted developer control center for coding agents and automations.</strong>\n  </p>\n  <p align=\"center\">\n    Run OpenHands, Claude Code, Codex, Gemini, Pi, OpenCode, or any ACP-compatible agent across local, remote, and cloud backends.\n  </p>\n</div>\n<div align=\"center\">\n  <a href=\"https://github.com/OpenHands/incubator-program\"><img src=\"https://img.shields.io/badge/status-beta-blue?style=for-the-badge\" alt=\"Project status beta\"></a>\n  <a href=\"https://github.com/OpenHands/OpenHands/actions/workflows/ci.yml\"><img src=\"https://img.shields.io/github/actions/workflow/status/OpenHands/OpenHands/ci.yml?branch=main&style=for-the-badge\" alt=\"CI status\"></a>\n  <a href=\"https://www.npmjs.com/package/@openhands/agent-canvas\"><img src=\"https://img.shields.io/npm/v/%40openhands%2Fagent-canvas?style=for-the-badge&logo=npm\" alt=\"npm version\"></a>\n  <a href=\"https://docs.openhands.dev/openhands/usage/agent-canvas/backends\"><img src=\"https://img.shields.io/badge/Documentation-000?logo=googledocs&logoColor=FFE165&style=for-the-badge\" alt=\"Documentation\"></a>\n  <a href=\"https://go.openhands.dev/slack\"><img src=\"https://img.shields.io/badge/Slack-Join%20the%20community-611f69?logo=slack&logoColor=white&style=for-the-badge\" alt=\"Join us on Slack\"></a>\n</div>\n<div align=\"center\">\n  <a href=\"#quickstart\">Quickstart</a> |\n  <a href=\"./docs/README.md\">Docs</a> |\n  <a href=\"./docs/SELF_HOSTING.md\">Self-Hosting</a> |\n  <a href=\"https://docs.openhands.dev/openhands/usage/agent-canvas/acp-agents\">ACP Agents</a> |\n  <a href=\"https://docs.openhands.dev/openhands/usage/agent-canvas/prebuilt-automations\">Automations</a> |\n  <a href=\"https://go.openhands.dev/slack\">Slack</a>\n</div>\n<p align=\"center\">\n  <img src=\"https://assets.openhands.dev/screenshot/automation-preview.png\" alt=\"Agent Canvas automation preview\" width=\"100%\">\n</p>\n<hr>\n\nOpenHands Agent Canvas turns your coding agents into a self-hosted, always-on engineering team. It's a developer control center for starting conversations and automating everyday tasks — like generating reports that publish to Slack or automatically decomposing GitHub issues into tasks.\n\nIt runs locally on your machine by default, but can connect to multiple “agent backends”, e.g. running agents in Docker containers, on VMs, or within your company infrastructure. You can optionally choose to run agents on OpenHands Cloud or OpenHands Enterprise infrastructure.\n\nAgent Canvas runs the open source OpenHands agent out-of-the-box, but can use third-party agents such as Claude Code, Codex, Gemini CLI, Pi, and OpenCode.\n\n|                                                                                                                      |                                                                                                                                          |\n| -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |\n| [**Self-host your way**](https://docs.openhands.dev/openhands/usage/agent-canvas/backend-setup/vm)                   | Run agents locally, in Docker, on VMs, or anywhere you can run an agent server backend                                                   |\n| [**Switch between different backends**](https://docs.openhands.dev/openhands/usage/agent-canvas/backends)            | Switch between local, remote, and cloud agents without losing focus                                                                      |\n| [**Create automations**](https://docs.openhands.dev/openhands/usage/agent-canvas/prebuilt-automations)               | Create automations and workflows that integrate with Slack, GitHub, Linear, and more. Run on a schedule or in response to webhook events |\n| [**Integrate with the tools you use**](https://docs.openhands.dev/openhands/usage/agent-canvas/prebuilt-automations) | Connect your automations with third-party services like Slack, GitHub, Notion, and more to automate workflows                            |\n| [**Bring your own model**](https://docs.openhands.dev/openhands/usage/settings/llm-settings#llm-profiles)            | Use with any LLM                                                                                                                         |\n| [**Use with any agent**](https://docs.openhands.dev/openhands/usage/agent-canvas/acp-agents)                         | Use with OpenHands, Claude Code, Codex, Gemini, Pi, OpenCode, or any agent with Agent-Client Protocol (ACP).                             |\n\nIf you have questions or feedback, please open a GitHub issue or join the [#proj-agent-canvas channel "
+      }
+    },
+    {
+      "target": "https://api.github.com/repos/cloudflare/workers-sdk",
+      "proxy_status": 200,
+      "elapsed_ms": 245.7,
+      "data": {
+        "url": "https://api.github.com/repos/cloudflare/workers-sdk",
+        "finalUrl": "https://api.github.com/repos/cloudflare/workers-sdk",
+        "status": 200,
+        "contentType": "application/json; charset=utf-8",
+        "text": "{\"id\":426659329,\"node_id\":\"R_kgDOGW5OAQ\",\"name\":\"workers-sdk\",\"full_name\":\"cloudflare/workers-sdk\",\"private\":false,\"owner\":{\"login\":\"cloudflare\",\"id\":314135,\"node_id\":\"MDEyOk9yZ2FuaXphdGlvbjMxNDEzNQ==\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/314135?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/cloudflare\",\"html_url\":\"https://github.com/cloudflare\",\"followers_url\":\"https://api.github.com/users/cloudflare/followers\",\"following_url\":\"https://api.github.com/users/cloudflare/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/cloudflare/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/cloudflare/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/cloudflare/subscriptions\",\"organizations_url\":\"https://api.github.com/users/cloudflare/orgs\",\"repos_url\":\"https://api.github.com/users/cloudflare/repos\",\"events_url\":\"https://api.github.com/users/cloudflare/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/cloudflare/received_events\",\"type\":\"Organization\",\"user_view_type\":\"public\",\"site_admin\":false},\"html_url\":\"https://github.com/cloudflare/workers-sdk\",\"description\":\"⛅️ Home to Wrangler, the CLI for Cloudflare Workers®\",\"fork\":false,\"url\":\"https://api.github.com/repos/cloudflare/workers-sdk\",\"forks_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/forks\",\"keys_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/keys{/key_id}\",\"collaborators_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/collaborators{/collaborator}\",\"teams_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/teams\",\"hooks_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/hooks\",\"issue_events_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/issues/events{/number}\",\"events_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/events\",\"assignees_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/assignees{/user}\",\"branches_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/branches{/branch}\",\"tags_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/tags\",\"blobs_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/git/blobs{/sha}\",\"git_tags_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/git/tags{/sha}\",\"git_refs_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/git/refs{/sha}\",\"trees_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/git/trees{/sha}\",\"statuses_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/statuses/{sha}\",\"languages_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/languages\",\"stargazers_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/stargazers\",\"contributors_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/contributors\",\"subscribers_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/subscribers\",\"subscription_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/subscription\",\"commits_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/commits{/sha}\",\"git_commits_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/git/commits{/sha}\",\"comments_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/comments{/number}\",\"issue_comment_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/issues/comments{/number}\",\"contents_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/contents/{+path}\",\"compare_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/compare/{base}...{head}\",\"merges_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/merges\",\"archive_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/{archive_format}{/ref}\",\"downloads_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/downloads\",\"issues_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/issues{/number}\",\"pulls_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/pulls{/number}\",\"milestones_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/milestones{/number}\",\"notifications_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/notifications{?since,all,participating}\",\"labels_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/labels{/name}\",\"releases_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/releases{/id}\",\"deployments_url\":\"https://api.github.com/repos/cloudflare/workers-sdk/deployments\",\"created_at\":\"2021-11-10T14:45:40Z\",\"updated_at\":\"2026-10-10T10:17:31Z\",\"pushed_at\":\"2026-10-09T21:34:56Z\",\"git_url\":\"git://github.com/cloudflare/workers-sdk.git\",\"ssh_url\":\"git@github.com:cloudflare/workers-sdk.git\",\"clone_url\":\"https://github.com/cloudflare/workers-sdk.git\",\"svn_url\":\"https://github.com/cloudflare/workers-sdk\",\"homepage\":\"https://developers.cloudflare.com/workers/\",\"size\":165013,\"stargazers_count\":4613,\"watchers_count\":4613,\"language\":\"TypeScript\",\"has_issues\":true,\"has_projects\":true,\"has_downloads\":false,\"has_wiki\":false,\"has_pages\":false,\"has_discussions\":true,\"forks_count\":1577,\"mirror_url\":null,\"archived\":false,\"disabled\":false,\"o"
+      }
+    },
+    {
+      "target": "https://example.com/",
+      "proxy_status": 200,
+      "elapsed_ms": 1069.9,
+      "data": {
+        "url": "https://example.com/",
+        "finalUrl": "https://example.com/",
+        "status": 200,
+        "contentType": "text/html; charset=utf-8",
+        "text": "Example Domain html{color-scheme:light dark;background:light-dark(#eee,#222)}body{font:16px/1.6 system-ui,sans-serif;max-width:26em;margin:auto;padding:25vh 2em 2em;text-align:center} This domain is for use in documentation examples without needing permission. This is not a service; avoid relying on it for testing and monitoring purposes."
+      }
+    }
+  ]
+}

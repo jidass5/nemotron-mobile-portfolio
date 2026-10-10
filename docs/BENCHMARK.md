@@ -16,7 +16,7 @@ Na segurança, o benchmark mostrou três fronteiras distintas. Continue protege 
 
 ## O que foi aplicado ao Nemotron
 
-Este repositório agora inclui `docs/TOOL_CONTRACT.md`, um quickstart mais claro no README, `docs/SECURITY.md`, CI, testes no runtime Workers e documentação da arquitetura. O Worker reconstruído expõe 16 testes passando, incluindo validação de URL, hosts privados, credenciais, portas, redirects, conteúdo binário, CORS e métodos HTTP.
+Este repositório agora inclui `docs/TOOL_CONTRACT.md`, um quickstart mais claro no README, `docs/SECURITY.md`, CI, testes no runtime Workers e documentação da arquitetura. O Worker reconstruído expõe 17 testes passando, incluindo validação de URL, allowlist, hosts privados, credenciais, portas, redirects, conteúdo binário, CORS e métodos HTTP.
 
 Não foram copiados RBAC, indexação completa, execução de terminal, workspaces remotos ou múltiplos produtos. Isso preserva a narrativa: **um fluxo móvel de exploração assistida de código, com contexto lazy, revisão de diff e uma fronteira serverless de leitura segura**.
 

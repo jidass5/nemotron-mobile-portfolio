@@ -73,6 +73,8 @@ O proxy foi desenhado para reduzir riscos de SSRF e abuso:
 - extração HTML→texto com `HTMLRewriter`;
 - rate limit por isolate;
 - CORS configurável por `ALLOWED_ORIGINS`;
+- allowlist opcional de hosts exatos via `ALLOWED_HOSTS`, reaplicada em redirects;
+- headers `Cache-Control: no-store` e `X-Content-Type-Options: nosniff`;
 - testes no runtime real do Workers.
 
 O setup de testes usa `@cloudflare/vitest-pool-workers` e carrega o
@@ -126,7 +128,7 @@ Publicação:
 npx wrangler deploy
 ```
 
-Após o deploy, configure a URL do Worker na constante `FETCH_PROXY` do cliente e gere novamente o APK.
+Após o deploy, configure a URL do Worker na constante `FETCH_PROXY` do cliente e gere novamente o APK. O fluxo recomendado, com secrets e validação prévia, está em [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 Para uma avaliação rápida, siga o [quickstart para recrutadores](docs/QUICKSTART_RECRUITER.md). As decisões de tools, contexto lazy e revisão de diff estão no [contrato de tools](docs/TOOL_CONTRACT.md). O [benchmark de projetos alinhados](docs/BENCHMARK.md) explica por que o repositório prioriza um fluxo vertical pequeno em vez de copiar plataformas maiores.
 
@@ -211,3 +213,10 @@ runtime Cloudflare**.
 O APK continua sendo um artefato compilado; o projeto Android/WebView original
 e o código-fonte original do Worker não foram enviados. A pasta
 `recovered-app/` preserva o APK e a interface web extraída como referência.
+
+O deployment público também não é alegado nesta entrega: a sessão usada para
+desenvolvimento não está autenticada no Cloudflare. Para contornar isso sem
+expor credenciais, o repositório agora inclui um workflow de deploy acionável
+por secrets do GitHub, com typecheck e testes obrigatórios antes da publicação.
+Sem `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID`, o workflow falha de forma
+explícita em vez de fabricar uma URL de demo.

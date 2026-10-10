@@ -13,6 +13,8 @@
 - rejeição de conteúdo binário;
 - rate limit em memória;
 - CORS configurável por `ALLOWED_ORIGINS`;
+- allowlist opcional de destinos por `ALLOWED_HOSTS`, reaplicada em cada redirect;
+- `Cache-Control: no-store` e `X-Content-Type-Options: nosniff` nas respostas;
 - nenhum segredo necessário para executar os testes.
 
 ## Limitações conhecidas
@@ -32,6 +34,7 @@ instrução do sistema ou autorização para executar ações.
 ## Checklist antes de produção
 
 - restringir `ALLOWED_ORIGINS`;
+- definir `ALLOWED_HOSTS` para o conjunto mínimo de destinos necessários;
 - adicionar observabilidade sem registrar URLs sensíveis ou conteúdo privado;
 - configurar limite global de requisições;
 - validar e limitar redirects e tipos de conteúdo também no cliente;

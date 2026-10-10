@@ -40,7 +40,7 @@ Segundo o README entregue:
 - leitura streaming com limite de 2 MB;
 - HTMLRewriter para extração de texto;
 - rate limiting e CORS configurável;
-- 63 testes no runtime real do Workers.
+- a reconstrução atual possui 17 testes no runtime real dos Workers; o README recebido mencionava uma suíte diferente, que não foi enviada.
 
 ### Configuração de testes recebida
 
@@ -60,7 +60,7 @@ defineWorkersConfig({
 ```
 
 Os testes estão em `test/**/*.test.ts`. A suíte reconstruída foi executada com
-sucesso: **16 testes passando no runtime Cloudflare**.
+sucesso: **17 testes passando no runtime Cloudflare**.
 
 O `wrangler.jsonc` recebido confirma:
 
@@ -91,7 +91,7 @@ O código original do Worker, `package.json` e arquivos de teste não foram
 recebidos; a implementação, os testes e o `package.json` desta pasta foram
 reconstruídos a partir da especificação disponível. O projeto Android original
 ainda não foi recuperado. A reconstrução agora executa `npm install`,
-`npm run typecheck` e `npm test` com 16 testes passando.
+`npm run typecheck` e `npm test` com 17 testes passando.
 
 **Ação:** publicar ambos os fontes, adicionar lockfile, `.env.example`, CI e um quickstart validado do zero.
 

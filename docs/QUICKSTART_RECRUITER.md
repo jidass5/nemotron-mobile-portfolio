@@ -13,7 +13,7 @@ npm run typecheck
 npm test
 ```
 
-O resultado esperado é `16 tests passed` executados pelo pool Cloudflare Workers.
+O resultado esperado é `17 tests passed` executados pelo pool Cloudflare Workers.
 
 ## Explorar a API local
 

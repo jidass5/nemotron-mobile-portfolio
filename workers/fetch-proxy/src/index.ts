@@ -1,5 +1,6 @@
 export interface Env {
   ALLOWED_ORIGINS?: string;
+  ALLOWED_HOSTS?: string;
 }
 
 const MAX_BODY_BYTES = 2 * 1024 * 1024;
@@ -38,7 +39,11 @@ function originAllowed(request: Request, env: Env): string | null {
 }
 
 function corsHeaders(request: Request, env: Env): Headers {
-  const headers = new Headers({ "Vary": "Origin" });
+  const headers = new Headers({
+    "Vary": "Origin",
+    "X-Content-Type-Options": "nosniff",
+    "Cache-Control": "no-store",
+  });
   const allowed = originAllowed(request, env);
   if (allowed) {
     headers.set("Access-Control-Allow-Origin", allowed);
@@ -86,13 +91,19 @@ function isBlockedHostname(hostname: string): boolean {
   return false;
 }
 
-function validateTarget(raw: string): URL {
+function isAllowedHost(hostname: string, env: Env): boolean {
+  const configured = (env.ALLOWED_HOSTS || "").split(",").map((value) => value.trim().toLowerCase()).filter(Boolean);
+  return configured.length === 0 || configured.includes(hostname.toLowerCase());
+}
+
+export function validateTarget(raw: string, env: Env): URL {
   let url: URL;
   try { url = new URL(raw); } catch { throw new HttpError(400, "URL inválida"); }
   if (url.protocol !== "http:" && url.protocol !== "https:") throw new HttpError(400, "somente http e https são permitidos");
   if (url.username || url.password) throw new HttpError(400, "credenciais na URL não são permitidas");
   if (url.port && url.port !== "80" && url.port !== "443") throw new HttpError(400, "porta não permitida");
   if (isBlockedHostname(url.hostname)) throw new HttpError(400, "hostname bloqueado por segurança");
+  if (!isAllowedHost(url.hostname, env)) throw new HttpError(403, "hostname fora da allowlist");
   return url;
 }
 
@@ -100,7 +111,7 @@ class HttpError extends Error {
   constructor(public status: number, message: string) { super(message); }
 }
 
-async function fetchWithRedirects(initial: URL): Promise<{ response: Response; finalUrl: string }> {
+async function fetchWithRedirects(initial: URL, env: Env): Promise<{ response: Response; finalUrl: string }> {
   let current = initial;
   for (let hop = 0; hop <= MAX_REDIRECTS; hop += 1) {
     const response = await fetch(current, {
@@ -112,7 +123,7 @@ async function fetchWithRedirects(initial: URL): Promise<{ response: Response; f
     if (hop === MAX_REDIRECTS) throw new HttpError(502, "número máximo de redirects excedido");
     const location = response.headers.get("Location");
     if (!location) throw new HttpError(502, "redirect sem Location");
-    current = validateTarget(new URL(location, current).toString());
+    current = validateTarget(new URL(location, current).toString(), env);
   }
   throw new HttpError(502, "redirect inválido");
 }
@@ -173,8 +184,8 @@ async function handleFetch(request: Request, env: Env): Promise<Response> {
   const requestedMax = Number(query.get("maxChars") || DEFAULT_MAX_CHARS);
   const maxChars = Number.isFinite(requestedMax) ? Math.min(MAX_MAX_CHARS, Math.max(500, requestedMax)) : DEFAULT_MAX_CHARS;
   try {
-    const target = validateTarget(rawUrl);
-    const { response, finalUrl } = await fetchWithRedirects(target);
+    const target = validateTarget(rawUrl, env);
+    const { response, finalUrl } = await fetchWithRedirects(target, env);
     const contentType = response.headers.get("content-type") || "";
     if (!/^text\/(html|plain|css|csv|xml)|application\/(json|xml)/i.test(contentType)) throw new HttpError(415, "conteúdo binário não suportado");
     const body = await readLimited(response);

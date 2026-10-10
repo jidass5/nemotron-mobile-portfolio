@@ -1,13 +1,10 @@
-# Changelog
 
-## 1.0.0 — reconstrução para portfólio
+## 1.1.0 — entrega e hardening
 
-- Implementado Worker Cloudflare funcional em `workers/fetch-proxy/src/index.ts`.
-- Adicionados `/api/health` e `/api/fetch` com formatos `text` e `links`.
-- Adicionados validação SSRF, redirects manuais, timeout, limite de 2 MB, CORS e rate limit em memória.
-- Adicionada suíte de 16 testes no runtime Cloudflare Workers.
-- Adicionados typecheck, lockfile, CI, licença e documentação de segurança.
-- Adicionados contratos de tool/contexto/diff e quickstart para recrutadores.
-- Preservados APK e `index.html` recuperado como referência.
-
-A implementação do Worker foi reconstruída a partir do README, `wrangler.jsonc`, `vitest.config.ts` e comportamento observado no APK. Ela não deve ser apresentada como o código-fonte original que não foi enviado.
+- Adicionada `ALLOWED_HOSTS` opcional, aplicada novamente em cada redirect.
+- Adicionados `Cache-Control: no-store` e `X-Content-Type-Options: nosniff`.
+- Adicionado teste de allowlist; suíte passou a 17 testes no runtime Workers.
+- Adicionado workflow de deploy Cloudflare condicionado a secrets explícitos.
+- Adicionada documentação de deploy local e por GitHub Actions.
+- Atualizada a documentação para declarar que não existe deployment público sem autenticação Cloudflare.
+- Corrigidas referências históricas de contagem de testes.

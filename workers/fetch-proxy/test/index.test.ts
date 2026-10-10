@@ -1,5 +1,6 @@
 import { SELF, fetchMock } from "cloudflare:test";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { validateTarget } from "../src/index";
 
 describe("Nemotron Fetch Proxy", () => {
   beforeEach(() => {
@@ -16,6 +17,8 @@ describe("Nemotron Fetch Proxy", () => {
     const response = await SELF.fetch("https://worker.test/api/health");
     expect(response.status).toBe(200);
     expect(await response.json()).toEqual({ ok: true, service: "nemotron-fetch-proxy" });
+    expect(response.headers.get("X-Content-Type-Options")).toBe("nosniff");
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
   });
 
   it("retorna 404 para rota desconhecida", async () => {
@@ -54,6 +57,11 @@ describe("Nemotron Fetch Proxy", () => {
   it("rejeita formato desconhecido", async () => {
     const response = await SELF.fetch("https://worker.test/api/fetch?url=https%3A%2F%2Fexample.com&format=xml");
     expect(response.status).toBe(400);
+  });
+
+  it("permite apenas hosts explicitamente configurados na allowlist", () => {
+    expect(validateTarget("https://api.github.com/repos/example/project", { ALLOWED_HOSTS: "api.github.com" }).hostname).toBe("api.github.com");
+    expect(() => validateTarget("https://example.com/", { ALLOWED_HOSTS: "api.github.com" })).toThrow("hostname fora da allowlist");
   });
 
   it("limita maxChars ao intervalo documentado", async () => {
